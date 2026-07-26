@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const screenshots = [
@@ -41,6 +41,23 @@ export default function AppScreenshots() {
 
   const prev = () => goTo((active - 1 + screenshots.length) % screenshots.length);
   const next = () => goTo((active + 1) % screenshots.length);
+
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const onTouchEnd = useCallback((e: React.TouchEvent) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = e.changedTouches[0].clientY - touchStartY.current;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) next();
+      else prev();
+    }
+  }, [active]);
 
   return (
     <section className="section">
@@ -98,7 +115,10 @@ export default function AppScreenshots() {
           <div style={{
             display: "flex", alignItems: "center", justifyContent: "center",
             overflow: "hidden", padding: "20px 0",
-          }}>
+          }}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={screenshots[active].id}
