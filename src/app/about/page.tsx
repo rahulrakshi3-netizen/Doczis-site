@@ -74,7 +74,7 @@ export default function AboutPage() {
               fontStyle: "italic",
               marginBottom: 20,
             }}>
-              DOCZIS was built because I was tired of the same struggle &mdash; jumping between a dozen websites
+              DOCZIS was built because we were tired of the same struggle &mdash; jumping between a dozen websites
               and apps, each with its own ads, its own login wall, its own &ldquo;upgrade to pro&rdquo; nag screen.
               Every tool does one thing and forces you through a maze of pop-ups.
             </p>
@@ -85,7 +85,7 @@ export default function AboutPage() {
               fontStyle: "italic",
               marginBottom: 20,
             }}>
-              So I built the tool I wished existed. One app. Offline. No accounts. No ads. No data leaving your phone.
+              So we built the tool we wished existed. One app. Offline. No accounts. No ads. No data leaving your phone.
               Just honest, fast document tools that respect your time and your privacy.
             </p>
             <p style={{
@@ -105,7 +105,7 @@ export default function AboutPage() {
               fontWeight: 600,
               color: "var(--text-primary)",
             }}>
-              &mdash; Rahul
+              &mdash; Doczis Team
             </div>
           </motion.div>
         </div>
