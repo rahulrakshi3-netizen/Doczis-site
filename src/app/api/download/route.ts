@@ -10,6 +10,7 @@ export async function GET() {
     headers: {
       "Content-Type": "application/vnd.android.package-archive",
       "Content-Disposition": 'attachment; filename="Doczis.apk"',
+      "Cache-Control": "no-store",
     },
   });
 }

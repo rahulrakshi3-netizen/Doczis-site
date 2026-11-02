@@ -1,4 +1,4 @@
-const APK_URL = "/Doczis.apk";
+const APK_URL = "/Doczis.apk?v=1.2";
 
 export function downloadApk() {
   const a = document.createElement("a");
