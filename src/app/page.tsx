@@ -243,7 +243,7 @@ export default function Home() {
               }}>
                 D
               </div>
-              <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12 }}>DOCZIS v1.2</h3>
+              <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12 }}>DOCZIS v1.3</h3>
               <p style={{ color: "var(--text-secondary)", fontSize: 14, marginBottom: 24, lineHeight: 1.7 }}>
                 Built with Kotlin, Material 3, and a focus on privacy. 
                 Available now for Android 8.0+.
