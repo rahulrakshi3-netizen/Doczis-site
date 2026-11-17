@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   authors: [{ name: "DOCZIS" }],
   creator: "DOCZIS",
   publisher: "DOCZIS",
-  metadataBase: new URL("https://doczis.app"),
+  metadataBase: new URL("https://doczis.got-a.page"),
   openGraph: {
     type: "website",
     locale: "en_US",

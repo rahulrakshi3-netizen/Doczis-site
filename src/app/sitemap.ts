@@ -1,4 +1,6 @@
-const baseUrl = "https://doczis.app";
+const baseUrl = "https://doczis.got-a.page";
+
+export const dynamic = "force-static";
 
 export default function sitemap() {
   return [

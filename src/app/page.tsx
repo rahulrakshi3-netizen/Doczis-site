@@ -128,7 +128,7 @@ export default function Home() {
               Explore Features <ArrowRight size={18} />
             </Link>
             <RainbowButton asChild>
-              <a href="/api/download" download>
+              <a href="/Doczis.apk" download="Doczis.apk">
                 <Download size={18} /> Download Now
               </a>
             </RainbowButton>
