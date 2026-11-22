@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   authors: [{ name: "DOCZIS" }],
   creator: "DOCZIS",
   publisher: "DOCZIS",
+  verification: {
+    google: "RcPKHpNYU-U-8-Y6wqJmZSEmNuBTPL_DS6T3jd684tw",
+  },
   metadataBase: new URL("https://doczis.got-a.page"),
   openGraph: {
     type: "website",
