@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   creator: "DOCZIS",
   publisher: "DOCZIS",
   verification: {
-    google: "RcPKHpNYU-U-8-Y6wqJmZSEmNuBTPL_DS6T3jd684tw",
+    google: "gDZjt2x8sA6ey7pmgJb6Yi2F-uOnA0IOiTkDdN9uKO0",
   },
   metadataBase: new URL("https://doczis.got-a.page"),
   openGraph: {
