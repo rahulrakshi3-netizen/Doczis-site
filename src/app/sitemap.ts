@@ -1,4 +1,6 @@
-const baseUrl = "https://doczis.got-a.page";
+import { siteConfig } from "@/lib/site";
+
+const baseUrl = siteConfig.url;
 
 export const dynamic = "force-static";
 
@@ -18,6 +20,12 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/developer`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,

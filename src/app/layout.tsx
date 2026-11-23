@@ -3,14 +3,14 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SplashScreen from "@/components/SplashScreen";
+import { developerSameAs, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
-    default: "DOCZIS - Smart Document Hub | PDF Tools & Document Manager",
+    default: siteConfig.title,
     template: "%s | DOCZIS",
   },
-  description:
-    "DOCZIS is a powerful offline PDF and document management app for Android. Convert, edit, merge, split, compress, secure, and organize PDFs with 12+ professional tools. No server required.",
+  description: siteConfig.description,
   keywords: [
     "PDF editor",
     "document manager",
@@ -25,21 +25,26 @@ export const metadata: Metadata = {
     "Android PDF tools",
     "offline document editor",
     "DOCZIS",
+    "Rahul Raj",
+    "DOCZIS developer",
   ],
-  authors: [{ name: "DOCZIS" }],
-  creator: "DOCZIS",
-  publisher: "DOCZIS",
+  authors: [{ name: siteConfig.developer.name, url: siteConfig.developer.portfolioUrl }],
+  creator: siteConfig.developer.name,
+  publisher: siteConfig.developer.name,
   verification: {
     google: "gDZjt2x8sA6ey7pmgJb6Yi2F-uOnA0IOiTkDdN9uKO0",
   },
-  metadataBase: new URL("https://doczis.got-a.page"),
+  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "DOCZIS",
-    title: "DOCZIS - Smart Document Hub | PDF Tools & Document Manager",
-    description:
-      "Powerful offline PDF and document management app with 12+ professional tools. Convert, edit, merge, split, compress, and secure documents on your Android device.",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.shortDescription,
     images: [
       {
         url: "/images/og-image.png",
@@ -52,8 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DOCZIS - Smart Document Hub",
-    description:
-      "Powerful offline PDF and document management app for Android.",
+    description: "Powerful offline PDF and document management app for Android.",
     images: ["/images/og-image.png"],
   },
   robots: {
@@ -74,6 +78,50 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
+const developerId = `${siteConfig.url}/#developer`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      inLanguage: "en-US",
+      publisher: { "@id": developerId },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${siteConfig.url}/#app`,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      url: siteConfig.url,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Android 8.0+",
+      author: { "@id": developerId },
+      creator: { "@id": developerId },
+      publisher: { "@id": developerId },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": developerId,
+      name: siteConfig.developer.name,
+      url: siteConfig.developer.portfolioUrl,
+      email: siteConfig.developer.email,
+      jobTitle: siteConfig.developer.role,
+      description: siteConfig.developer.bio,
+      sameAs: developerSameAs,
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -82,6 +130,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          id="doczis-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <script dangerouslySetInnerHTML={{
           __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light")document.documentElement.classList.add("dark")}catch(e){}})()`
         }} />

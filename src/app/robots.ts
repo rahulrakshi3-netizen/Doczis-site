@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site";
+
 export const dynamic = "force-static";
 
 export default function robots() {
@@ -6,6 +8,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://doczis.got-a.page/sitemap.xml",
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

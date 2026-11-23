@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Shield, Github, Mail, FileText, ChevronDown } from "lucide-react";
+import { Shield, Github, Mail, FileText, ChevronDown, Globe, Linkedin, User } from "lucide-react";
 import { useState } from "react";
+import { siteConfig } from "@/lib/site";
 
 export default function AboutPage() {
   return (
@@ -105,7 +107,7 @@ export default function AboutPage() {
               fontWeight: 600,
               color: "var(--text-primary)",
             }}>
-              &mdash; Doczis Team
+              &mdash; {siteConfig.developer.name}, developer of DOCZIS
             </div>
           </motion.div>
         </div>
@@ -176,6 +178,108 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="section" id="developer" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              padding: "40px 36px",
+              borderRadius: "var(--radius)",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border)",
+            }}
+          >
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: 32,
+              alignItems: "center",
+            }}>
+              <div>
+                <div style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: 14,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "rgba(79,70,229,0.12)",
+                  color: "var(--primary-light)",
+                  marginBottom: 20,
+                }}>
+                  <User size={28} />
+                </div>
+                <h2 style={{ fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 800, marginBottom: 12 }}>
+                  Built by <span className="gradient-text">{siteConfig.developer.name}</span>
+                </h2>
+                <p style={{ color: "var(--text-secondary)", fontSize: 15, lineHeight: 1.8, marginBottom: 10 }}>
+                  {siteConfig.developer.bio}
+                </p>
+                <p style={{ color: "var(--text-secondary)", fontSize: 14, marginBottom: 0 }}>
+                  {siteConfig.developer.role} · {siteConfig.developer.location}
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 24 }}>
+                  <a
+                    href={siteConfig.developer.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    <Globe size={18} /> Portfolio
+                  </a>
+                  <a
+                    href={siteConfig.developer.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                  >
+                    <Github size={18} /> GitHub
+                  </a>
+                  <a
+                    href={siteConfig.developer.linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                  >
+                    <Linkedin size={18} /> LinkedIn
+                  </a>
+                </div>
+              </div>
+              <div style={{
+                padding: 24,
+                borderRadius: 16,
+                background: "var(--bg-secondary)",
+                border: "1px solid var(--border)",
+              }}>
+                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 16 }}>Developer contact</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                  <a
+                    href={`mailto:${siteConfig.developer.email}`}
+                    style={{ color: "var(--primary-light)", fontSize: 14, textDecoration: "underline", textUnderlineOffset: 3 }}
+                  >
+                    {siteConfig.developer.email}
+                  </a>
+                  <a
+                    href={`mailto:${siteConfig.developer.appEmail}`}
+                    style={{ color: "var(--primary-light)", fontSize: 14, textDecoration: "underline", textUnderlineOffset: 3 }}
+                  >
+                    {siteConfig.developer.appEmail}
+                  </a>
+                  <Link
+                    href="/developer"
+                    style={{ color: "var(--text-secondary)", fontSize: 14, textDecoration: "underline", textUnderlineOffset: 3 }}
+                  >
+                    Full developer profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="section" id="privacy">
         <div className="container">
           <motion.div
@@ -234,6 +338,8 @@ export default function AboutPage() {
 
           <div style={{ maxWidth: 700, margin: "0 auto", display: "flex", flexDirection: "column", gap: 12 }}>
             {[
+              { q: "Who is the developer of DOCZIS?", a: `DOCZIS was developed by ${siteConfig.developer.name}, an Android and full-stack developer from Bangalore, India. His portfolio is ${siteConfig.developer.portfolioUrl}.` },
+              { q: "Where can I find the DOCZIS developer's portfolio?", a: `You can find ${siteConfig.developer.name}'s portfolio at ${siteConfig.developer.portfolioUrl}. His GitHub profile is ${siteConfig.developer.githubUrl}.` },
               { q: "Is DOCZIS completely free?", a: "Yes! DOCZIS is 100% free with no hidden costs, subscriptions, or in-app purchases. All features are available without any paywall." },
               { q: "Does DOCZIS require internet?", a: "No. DOCZIS works entirely offline. No internet connection is needed for any feature. Your documents never leave your device." },
               { q: "What Android version do I need?", a: "DOCZIS supports Android 8.0 (API 26) and above. We recommend Android 12+ for the best experience with Material 3 design." },
