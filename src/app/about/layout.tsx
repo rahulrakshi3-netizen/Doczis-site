@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About DOCZIS",
   description:
-    "Learn about DOCZIS, the privacy-first offline document hub for Android, and its developer Rahul Raj.",
+    "Learn about DOCZIS, the privacy-first offline document hub for Android.",
   alternates: {
     canonical: "/about",
   },

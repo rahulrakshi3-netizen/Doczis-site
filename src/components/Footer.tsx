@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { siteConfig } from "@/lib/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -59,10 +58,6 @@ export default function Footer() {
           <div>
             <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "var(--text-primary)" }}>Support</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <Link href="/developer" style={{ color: "var(--text-secondary)", fontSize: 14, transition: "color 0.2s" }}
-                onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"}
-                onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-secondary)"}
-              >Developer</Link>
               <Link href="/about#contact" style={{ color: "var(--text-secondary)", fontSize: 14, transition: "color 0.2s" }}
                 onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"}
                 onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-secondary)"}
@@ -78,9 +73,7 @@ export default function Footer() {
             <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "var(--text-primary)" }}>Legal</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>MIT License</span>
-              <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>
-                Copyright {currentYear} {siteConfig.developer.name}
-              </span>
+              <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>Copyright {currentYear}</span>
             </div>
           </div>
         </div>
@@ -98,22 +91,7 @@ export default function Footer() {
             &copy; {currentYear} DOCZIS. All rights reserved.
           </p>
           <p style={{ color: "var(--text-secondary)", fontSize: 13 }}>
-            Developed by{" "}
-            <Link
-              href="/developer"
-              style={{ color: "var(--primary-light)", textDecoration: "underline", textUnderlineOffset: 2 }}
-            >
-              {siteConfig.developer.name}
-            </Link>
-            {" · "}
-            <a
-              href={siteConfig.developer.portfolioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "var(--primary-light)", textDecoration: "underline", textUnderlineOffset: 2 }}
-            >
-              Portfolio
-            </a>
+            Built with ❤️ for Android
           </p>
         </div>
       </div>
