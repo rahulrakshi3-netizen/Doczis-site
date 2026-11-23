@@ -91,7 +91,7 @@ export default function Footer() {
             &copy; {currentYear} DOCZIS. All rights reserved.
           </p>
           <p style={{ color: "var(--text-secondary)", fontSize: 13 }}>
-            Built with ❤️ for Android
+            Built with ❤️ by Rahul Raj
           </p>
         </div>
       </div>
